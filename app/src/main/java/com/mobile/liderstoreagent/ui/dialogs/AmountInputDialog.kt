@@ -132,7 +132,6 @@ class AmountInputDialog(context: Context, price: Double) :
                 val sellPrice = sellInput.text.toString()
                 val discount = discountInput.text.toString()
 
-                Log.e("TAG", "${total_price}: ${price}")
                if (total_price > price){
                    if (amount.isNotEmpty() && sellPrice.isNotEmpty()
                    ) {
