@@ -124,9 +124,6 @@ class AmountInputDialog(context: Context, price: Double) :
                 }
             })
 
-
-
-
             addAmountInput.setOnClickListener {
                 val amount = amountInput.text.toString()
                 val sellPrice = sellInput.text.toString()
