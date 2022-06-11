@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/backToClientPage"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="8dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Тўлов"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/backToClientPage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/backToClientPage" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:gravity="left"
+            android:text="Тўлов турини танланг" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16sp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/spinner_back"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/spinner_money_type"
+                android:layout_width="200dp"
+                android:layout_height="48dp"
+                android:entries="@array/spinner_array_payment" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/money_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/dollar_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="USD $" />
+
+            <RadioButton
+                android:id="@+id/sum_radio_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="СЎМ" />
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/InputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:hint="@string/enter_money"
+            app:startIconDrawable="@drawable/ic_paid"
+            app:startIconTint="@color/primary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputCash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:textColor="#000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/chb_by_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Маҳсулот бўйича"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/layout_spinner_products"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16sp"
+            android:background="@drawable/spinner_back"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Spinner
+                android:id="@+id/spinner_products"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+        </LinearLayout>
+
+
+        <!--                <com.google.android.material.textfield.TextInputLayout-->
+        <!--                    android:id="@+id/loginLayout"-->
+        <!--                    style="@style/InputLayout"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:paddingLeft="16dp"-->
+        <!--                    android:paddingTop="16dp"-->
+        <!--                    android:paddingRight="16dp"-->
+        <!--                    app:startIconTint="@color/colorPrimary"-->
+        <!--                    app:startIconDrawable="@drawable/ic_baseline_payment_24"-->
+        <!--                    app:boxStrokeColor="@color/black">-->
+
+        <!--                    <EditText-->
+        <!--                        android:id="@+id/inputCard"-->
+        <!--                        android:layout_width="match_parent"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:hint="@string/karta_bilan"-->
+        <!--                        android:inputType="numberDecimal"-->
+        <!--                        android:imeOptions="actionNext"-->
+        <!--                        android:singleLine="true"-->
+        <!--                        android:textColor="#000"-->
+        <!--                        android:textColorHint="#fff"-->
+        <!--                        android:textSize="18sp" />-->
+
+
+        <!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/qo_shimcha"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/InputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:hint="@string/komment">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputCommentPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:imeOptions="actionNext"
+                android:minLines="3"
+                android:textColor="#000"
+                android:textColorHint="#fff"
+                android:textSize="18sp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/payPayment"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="24dp"
+            android:text="@string/to_lash" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/datePickerDirector"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="24dp"
+            android:text="@string/yetib_borish_sanasi"
+            android:visibility="gone"
+            app:icon="@drawable/ic_baseline_calendar_today_24" />
+
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/paymentProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

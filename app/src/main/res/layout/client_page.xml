@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lineSearch"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="6dp"
+        android:background="@drawable/back_of_search"
+        android:padding="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/searchInput"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:background="#FFFF"
+            android:hint="Қидириш..."
+            android:maxLines="1"
+            android:paddingHorizontal="3dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintWidth_percent="0.6" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchByInput"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:selectableItemBackgroundBorderless"
+            android:gravity="center"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/searchInput"
+            app:layout_constraintRight_toLeftOf="@id/card"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:background="@drawable/ic_baseline_search"
+                android:backgroundTint="@color/primary"
+                android:contentDescription="Something" />
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:gravity="center"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/searchByInput"
+            app:layout_constraintRight_toLeftOf="@id/searchByOwnProduct"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <RelativeLayout
+                    android:id="@+id/relative_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/shoppedProducts"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_shopping_basket"
+                        app:tint="@color/primary" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/basketNotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/relative_layout"
+                    android:background="@drawable/item_count"
+                    android:textColor="#FFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchByOwnProduct"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:selectableItemBackgroundBorderless"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/card"
+            app:layout_constraintRight_toLeftOf="@id/searchByWarehouse"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:contentDescription="Something"
+                android:src="@drawable/ic_own_person"
+                app:tint="@color/primary" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchByWarehouse"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="3dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:selectableItemBackgroundBorderless"
+            android:gravity="center"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/searchByOwnProduct"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/ic_format_list"
+                android:backgroundTint="@color/primary" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshProducts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="4dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationViewClient"
+        app:layout_constraintTop_toBottomOf="@id/lineSearch">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerProducts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/market_item_products" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <ProgressBar
+        android:id="@+id/productsProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationViewClient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottom_appbar"
+        android:elevation="12dp"
+        app:itemIconTint="@color/primary"
+        app:itemTextColor="@color/primary"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/client_screen_bottom" />
+
+    <!--    app:itemRippleColor="@color/dark_grey"-->
+    <!--    app:itemIconTint="@color/bottom_navigation_selector"-->
+    <!--    app:itemTextColor="@color/bottom_navigation_selector"-->
+</androidx.constraintlayout.widget.ConstraintLayout>

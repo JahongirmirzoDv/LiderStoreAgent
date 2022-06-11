@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/clientReport"
+        android:icon="@drawable/ic_speaker_notes"
+        android:title="Хисобот" />
+    <item
+        android:id="@+id/clientShop"
+        android:icon="@drawable/ic_info"
+        android:title="Дўкон ҳақида" />
+
+    <item
+        android:id="@+id/paymentClient"
+        android:icon="@drawable/ic_paid"
+        android:title="Тўлов" />
+
+
+    <item
+        android:id="@+id/returnProduct"
+        android:icon="@drawable/ic_shopping_cart_checkout"
+        android:title="Қайтариш" />
+</menu>

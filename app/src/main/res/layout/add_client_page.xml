@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/backToHomeAddClient"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="12dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:contentDescription="@string/something"
+        android:padding="5dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/lineSavedClient"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/primary"
+        android:contentDescription="@string/something"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <RelativeLayout
+                android:id="@+id/relative_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/savedClients"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_history" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/basketNotificationClients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/relative_layout"
+                android:background="@drawable/item_count"
+                android:textColor="#FFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/client_add"
+        android:textColor="@color/primary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollable"
+        app:layout_constraintLeft_toRightOf="@+id/backToHomeAddClient"
+        app:layout_constraintRight_toLeftOf="@id/lineSavedClient"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ScrollView
+        android:id="@+id/scrollable"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/sendClientData"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backToHomeAddClient">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/black">
+
+                <EditText
+                    android:id="@+id/marketName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/do_kon_nomi"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/marketSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button_contained_round"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/do_kon_turi"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/priceType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button_contained_round"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/narx_turi"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/marketType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="12dp"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+                <TextView
+
+                    android:id="@+id/priceTypeText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="12dp"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                app:boxStrokeColor="@color/black">
+
+                <EditText
+                    android:id="@+id/clientAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/manzili"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/black">
+
+                <EditText
+                    android:id="@+id/mashrutKa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/orientir"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/black">
+
+                <EditText
+                    android:id="@+id/directorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/direktor_ismi"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/black">
+
+                <EditText
+                    android:id="@+id/datePickerDirector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/tug_ilgan_sana"
+                    android:imeOptions="actionNext"
+                    android:focusable="false"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/datePickerDirector"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="end"-->
+<!--                android:layout_margin="4dp"-->
+<!--                android:background="@drawable/bg_button_contained_round"-->
+<!--                android:gravity="center"-->
+<!--                android:padding="8dp"-->
+<!--                android:text="@string/tug_ilgan_sana"-->
+<!--                android:textColor="@color/white" />-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/black">
+
+                <EditText
+                    android:id="@+id/phoneNumber1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/direktor_telefon_raqami"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/black">
+
+                <EditText
+                    android:id="@+id/responsiblePerson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mas_ul_shaxs_ismi"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/black">
+
+                <EditText
+                    android:id="@+id/phoneNumber2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mas_ul_shaxs_telefon_raqami"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/black">
+
+                <EditText
+                    android:id="@+id/innNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/inn"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="#000"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/pickClientLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/dialog_back"
+                android:text="@string/location"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/carSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="3dp"
+                    android:background="@drawable/bg_button_contained_round"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/mashrut"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/territorySpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="3dp"
+                    android:background="@drawable/bg_button_contained_round"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="@string/hudud"
+                    android:textColor="@color/white" />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:weightSum="2">
+
+                <TextView
+
+                    android:id="@+id/mashinaType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:paddingLeft="12dp"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+
+                <TextView
+
+                    android:id="@+id/territoryText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="12dp"
+                    android:layout_marginStart="5dp"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/pickClientImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/dialog_back"
+                android:text="@string/rasm_tanlash"
+                android:textColor="@color/white" />
+
+
+            <ImageView
+                android:id="@+id/selectedImageClient"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <ProgressBar
+        android:id="@+id/clientAddProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sendClientData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/add_back"
+        android:text="@string/qo_shish"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

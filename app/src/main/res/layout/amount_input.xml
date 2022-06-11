@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/miqdorini_kiriting"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/amountInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/back_of_search"
+        android:hint="@string/miqdori"
+        android:imeOptions="actionNext"
+        android:inputType="numberDecimal"
+        android:padding="16dp"
+        android:singleLine="true"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@id/layout_discount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <LinearLayout
+        android:id="@+id/layout_discount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/back_of_input"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/amountInput"
+        app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+        <EditText
+            android:id="@+id/discountInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:hint="@string/chegirma"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textColorHint="@color/red"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="%"
+            android:textColor="@color/red" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/sellInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/back_of_search"
+        android:hint="@string/sotish_narxi"
+        android:imeOptions="actionNext"
+        android:inputType="numberDecimal"
+        android:padding="16dp"
+        android:singleLine="true"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@id/amountInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/amountInput" />
+
+    <TextView
+        android:id="@+id/textError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sellInput"
+        android:text="Маълумот тўлиқ киритилмади!" />
+
+    <TextView
+        android:id="@+id/priceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textError"
+        tools:text="Нархи:" />
+
+    <TextView
+        android:id="@+id/priceDiscount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/red"
+        android:textSize="19sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/priceText"
+        tools:text="Чегирма:" />
+
+    <TextView
+        android:id="@+id/priceTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/priceDiscount"
+        tools:text="Жами:" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addAmountInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_button_contained_round"
+        android:text="@string/savatchaga_qo_shish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/priceTotal" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

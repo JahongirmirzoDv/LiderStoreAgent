@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="@string/miqdorini_kiriting"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <EditText
+                android:id="@+id/amountInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/back_of_search"
+                android:hint="Сотиладиган миқдор"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:padding="16dp"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/discountInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/back_of_input"
+                android:hint="@string/chegirma"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:padding="16dp"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textColorHint="@color/red"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/priceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/priceDiscount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/priceDiscount"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            android:visibility="gone" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/addAmountInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_button_contained_round"
+                android:gravity="center"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@string/savatchaga_qo_shish"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/ediTextTakeClient"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back_of_search"
+                android:hint="Сўралган миқдор"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:padding="16dp"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textColorHint="#000"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.49" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

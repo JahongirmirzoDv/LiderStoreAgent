@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="4dp"
+
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:layout_margin="4dp"
+        android:id="@+id/expenseAll"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="@drawable/dialog_back"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="16sp"
+        android:padding="6dp"
+        android:text="@string/hammasi"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/expenseApproved"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_margin="4dp"
+        android:background="@drawable/dialog_back"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="16sp"
+        android:padding="6dp"
+        android:text="@string/tasdiqlanganlari"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/expenseOnlyPersonal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_margin="4dp"
+        android:background="@drawable/dialog_back"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="16sp"
+        android:padding="6dp"
+        android:text="@string/faqat_shaxsiylari"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/expenseOnlyFirm"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_margin="4dp"
+        android:background="@drawable/dialog_back"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="16sp"
+        android:padding="6dp"
+        android:text="@string/faqat_firmaniki"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
+

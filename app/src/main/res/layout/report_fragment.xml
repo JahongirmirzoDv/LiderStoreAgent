@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/backToHomeReport"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_margin="12dp"
+                    android:background="?android:selectableItemBackgroundBorderless"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_back" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/hisobot_berish"
+                    android:textColor="@color/primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/InputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    app:boxStrokeColor="@color/black">
+
+                    <EditText
+                        android:id="@+id/inputComment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hisobot_matni"
+                        android:maxLines="20"
+                        android:imeOptions="actionNext"
+                        android:textColor="#000"
+                        android:textColorHint="#fff"
+                        android:textSize="18sp" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pickImage"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/rasm_tanlash" />
+
+
+
+                <ImageView
+                    android:visibility="gone"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/selectedImage"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"/>
+
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sendReport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back_of_enter"
+                    android:text="@string/yuborish"
+                    android:layout_marginBottom="25dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+
+
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_margin="16dp"
+            android:layout_gravity="center"
+            android:id="@+id/reportProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,61 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Theme customization. -->
+        <item name="colorPrimaryDark">@color/blueDark</item>
+
+        <item name="colorPrimary">@color/blueMiddle</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorError">@color/error</item>
+        <item name="backgroundColor">@color/background</item>
+
+        <item name="fontFamily">@font/exo2_regular</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">@color/blueMiddle</item>
+
+
+    </style>
+
+    <style name="SpinnerDatePickerDialog" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:calendarViewShown">false</item>
+        <item name="android:datePickerMode">spinner</item>
+    </style>
+
+    <style name="FullScreenTheme" parent="AppTheme">
+        <!--this property will help hide the ActionBar-->
+        <item name="windowNoTitle">true</item>
+        <!--currently, I don't know why we need this property since use windowNoTitle only already help hide actionbar. I use it because it is used inside Theme.AppCompat.Light.NoActionBar (you can check Theme.AppCompat.Light.NoActionBar code). I think there are some missing case that I don't know-->
+        <item name="windowActionBar">false</item>
+        <!--this property is used for hiding StatusBar-->
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="TextView">
+        <item name="android:textColor">@color/sky_color</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
+    <style name="TextView.Bold" parent="TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="InputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    </style>
+
+    <style name="ClientItemText">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:text">sans-serif</item>
+    </style>
+</resources>

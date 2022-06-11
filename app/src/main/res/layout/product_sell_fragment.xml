@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/sellTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:text="@string/sotilayotgan_mahsulot_ma_lumotlari"
+        android:textColor="@color/purple_700"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@id/sellProduct"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sellTitle">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:weightSum="100">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="40"
+                        android:text="Tovar nomi:"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
+
+
+                    <TextView
+                        android:id="@+id/sellProductName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="60"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:weightSum="100">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="Umumiy miqdori:"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
+
+
+                    <TextView
+                        android:id="@+id/totalAmount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:weightSum="100">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="40"
+                        android:text="Haridor nomi:"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
+
+
+                    <TextView
+                        android:id="@+id/clientName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="60"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:weightSum="100">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="40"
+                        android:text="Umumiy narx:"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
+
+
+                    <TextView
+                        android:id="@+id/totalPrice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="60"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/InputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="70"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingRight="16dp"
+                        app:boxStrokeColor="@color/primary">
+
+                        <EditText
+                            android:id="@+id/inputQuantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Miqdorini kiriting"
+                            android:singleLine="true"
+                            android:inputType="numberDecimal"
+                            android:imeOptions="actionNext"
+                            android:textColor="#000"
+                            android:textColorHint="#ffff"
+                            android:textSize="18sp" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:id="@+id/unitText"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/InputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="70"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingRight="16dp"
+                        app:boxStrokeColor="@color/primary">
+
+                        <EditText
+                            android:id="@+id/inputPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Narxini kiriting"
+                            android:singleLine="true"
+                            android:inputType="numberDecimal"
+                            android:textColor="#000"
+                            android:textColorHint="#ffff"
+                            android:textSize="18sp" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:text="so'm"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:visibility="gone"
+                    android:id="@+id/discountLayout"
+                    android:weightSum="100">
+
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:id="@+id/discountButton"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="70"
+                        android:text="Chegirmalar "
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+
+                    <TextView
+                        android:id="@+id/discountText"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/dateLinear"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:text="Sanasi:"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/dateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:textColor="#162344"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/buttonDate"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/ic_baseline_calendar_today_24"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/chooseClient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/back_of_enter"
+                    android:text="Haridor tanlash"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sellProduct"
+        android:layout_width="match_parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/back_of_enter"
+        android:text="@string/buyurtma_olish"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp" />
+
+    <ProgressBar
+        app:layout_constraintTop_toBottomOf="@id/sellProduct"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/sellProgressBar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#B71C1C"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/mahsulot_buyurtma_qilish_uchun_avval_mahsulotni_tanlang"
+        android:layout_height="wrap_content"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

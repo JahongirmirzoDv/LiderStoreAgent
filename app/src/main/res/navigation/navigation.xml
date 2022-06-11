@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/splashFragment"
+    android:id="@+id/nav_root">
+    <fragment
+        tools:layout="@layout/screen_own_products"
+        android:id="@+id/productScreen"
+        android:name="com.mobile.liderstoreagent.ui.screens.OwnProductScreen"
+        android:label="ProductScreen" />
+    <fragment
+        android:name="com.mobile.liderstoreagent.ui.screens.HomeFragment"
+        android:label="Agent oynasi"
+        tools:layout="@layout/home_fragment"
+        android:id="@+id/mainFragment">
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_soldProductsFragment"
+            app:destination="@id/soldProductsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_planFragment"
+            app:destination="@id/planFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_reportFragment"
+            app:destination="@id/reportFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_reportsHistoryPage"
+            app:destination="@id/reportsHistoryPage" />
+        <action
+            android:id="@+id/action_mainFragment_to_addClientsPage"
+            app:destination="@id/addClientsPage" />
+        <action
+            android:id="@+id/action_mainFragment_to_clientFragment"
+            app:destination="@id/clientFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_expensesFragment"
+            app:destination="@id/expensesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_updateClientsPage"
+            app:destination="@id/updateClientsPage" />
+        <action
+            android:id="@+id/mainFragmentToHistoryScreen"
+            app:destination="@id/historyScreen" />
+        <action
+            android:id="@+id/action_mainFragment_to_ownProductScreen"
+            app:destination="@id/productScreen" />
+        <action
+            android:id="@+id/action_mainFragment_to_homeHistoryFragment"
+            app:destination="@id/homeHistoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        tools:layout="@layout/profile_fragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        tools:layout="@layout/splash_fragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        tools:layout="@layout/login_fragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/soldProductsFragment"
+        tools:layout="@layout/product_sold_fragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.SoldProductsFragment"
+        android:label="SoldProductsFragment" />
+    <fragment
+        android:id="@+id/planFragment"
+        tools:layout="@layout/plan_fragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.plan.PlanFragment"
+        android:label="PlanFragment">
+        <action
+            android:id="@+id/action_planFragment_to_planDetailsFragment"
+            app:destination="@id/planDetailsFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/plan_details_fragment"
+        android:id="@+id/planDetailsFragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.plan.PlanDetailsFragment"
+        android:label="PlanDetailsFragment">
+        <argument
+            android:name="myArg"
+            app:argType="integer"
+            android:defaultValue="0" />
+
+    </fragment>
+    <fragment
+        tools:layout="@layout/report_fragment"
+        android:id="@+id/reportFragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.report.ReportFragment"
+        android:label="ReportFragment" />
+    <fragment
+        tools:layout="@layout/history_reports_fragment"
+        android:id="@+id/reportsHistoryPage"
+        android:name="com.mobile.liderstoreagent.ui.screens.report.ReportsHistoryPage"
+        android:label="ReportsHistoryPage" />
+    <fragment
+        tools:layout="@layout/add_client_page"
+        android:id="@+id/addClientsPage"
+        android:name="com.mobile.liderstoreagent.ui.screens.AddClientsPage"
+        android:label="AddClientsPage" >
+        <argument
+            android:name="myId"
+            app:argType="integer"
+            android:defaultValue="0" />
+
+        <action
+            android:id="@+id/action_addClientsPage_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_addClientsPage_to_savedClients"
+            app:destination="@id/savedClients2" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.map.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+
+    <fragment
+        tools:layout="@layout/client_page"
+        android:id="@+id/clientFragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.ClientFragment"
+        android:label="ClientFragment">
+
+
+        <argument
+            android:name="myClientId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_clientFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+        <action
+            android:id="@+id/action_clientFragment_to_clientInfoFragment"
+            app:destination="@id/clientInfoFragment" />
+        <action
+            android:id="@+id/action_clientFragment_to_clientReportFragment"
+            app:destination="@id/clientReportFragment" />
+        <action
+            android:id="@+id/action_clientFragment_to_productInfoFragment"
+            app:destination="@id/productInfoFragment" />
+
+        <argument
+            android:name="clientDebt"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_clientFragment_to_homeReturnProductFragment"
+            app:destination="@id/homeReturnProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        tools:layout="@layout/payment_fragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.PaymentFragment"
+        android:label="PaymentFragment">
+        <argument
+            android:name="clientId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="clientDebt"
+            app:argType="float" />
+
+    </fragment>
+    <fragment
+        tools:layout="@layout/saved_clients"
+        android:id="@+id/savedClients2"
+        android:name="com.mobile.liderstoreagent.ui.screens.SavedClients"
+        android:label="SavedClients" />
+    <fragment
+        android:id="@+id/clientInfoFragment"
+        tools:layout="@layout/client_info_fragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.ClientInfoFragment"
+        android:label="ClientInfoFragment" >
+        <argument
+            android:name="client_id_for_info"
+            app:argType="integer"
+            android:defaultValue="0"
+            />
+    </fragment>
+    <fragment
+        tools:layout="@layout/client_report_fragment"
+        android:id="@+id/clientReportFragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.report.ClientReportFragment"
+        android:label="ClientReportFragment" >
+        <argument
+            android:name="myClientIdForReport"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/expenses_fragment"
+        android:id="@+id/expensesFragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.ExpensesFragment"
+        android:label="ExpensesFragment" />
+    <fragment
+        tools:layout="@layout/update_client_page"
+        android:id="@+id/updateClientsPage"
+        android:name="com.mobile.liderstoreagent.ui.screens.UpdateClientsPage"
+        android:label="UpdateClientsPage" >
+        <argument
+            android:name="myIdUpdate"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_updateClientsPage_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+
+        tools:layout="@layout/client_products_fragment"
+        android:id="@+id/clientProductsFragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.ClientProductsFragment"
+        android:label="ClientProductsFragment" >
+        <argument
+            android:name="client_id_for_products"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="clientDebt"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/product_info_fragment"
+        android:id="@+id/productInfoFragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.ProductInfoFragment"
+        android:label="ProductInfoFragment" >
+        <argument
+            android:name="product_id_for_detail"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/screen_history"
+        android:id="@+id/historyScreen"
+        android:name="com.mobile.liderstoreagent.ui.screens.HistoryScreen"
+        android:label="HistoryScreen" />
+    <fragment
+        android:id="@+id/homeHistoryFragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.HomeHistoryFragment"
+        android:label="fragment_home_history"
+        tools:layout="@layout/fragment_home_history" />
+    <fragment
+        android:id="@+id/homeReturnProductFragment"
+        android:name="com.mobile.liderstoreagent.ui.screens.HomeReturnProductFragment"
+        android:label="fragment_home_return_product"
+        tools:layout="@layout/fragment_home_return_product" />
+</navigation>
