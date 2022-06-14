@@ -6,7 +6,6 @@ import androidx.multidex.MultiDex
 import com.mobile.liderstoreagent.data.source.local.MyDatabase
 import com.mobile.liderstoreagent.data.source.local.TokenSaver
 import com.jakewharton.threetenabp.AndroidThreeTen
-import com.mazenrashed.printooth.Printooth
 import com.nabinbhandari.android.permissions.BuildConfig
 import timber.log.Timber
 
@@ -20,7 +19,6 @@ class App : Application() {
             Timber.plant(Timber.DebugTree())
         }
         MyDatabase.getDatabase(this)
-        Printooth.init(this)
         AndroidThreeTen.init(this)
     }
     override fun attachBaseContext(base: Context) {

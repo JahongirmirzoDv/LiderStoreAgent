@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.text.isDigitsOnly
@@ -41,6 +42,7 @@ import com.mobile.liderstoreagent.utils.showToast
 import kotlinx.android.synthetic.main.client_page.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import com.mobile.liderstoreagent.ui.adapters.ToSellClientAdapter as ToSellClientAdapter1
 
 class ClientFragment : Fragment(R.layout.client_page) {
@@ -63,7 +65,7 @@ class ClientFragment : Fragment(R.layout.client_page) {
     lateinit var warehouses: ArrayList<WarehouseData.Warehouse>
     lateinit var ownProductCategories: ArrayList<AgentData.CategoryModel>
 
-//    private val productsAdapter by lazy { MarketProductListAdapter() }
+    private val productsAdapter by lazy { MarketProductListAdapter() }
     private val productsAdapter1 by lazy { MarketProductListAdapter1() }
 
     var productData: List<ProductData> = ArrayList()
@@ -184,58 +186,59 @@ class ClientFragment : Fragment(R.layout.client_page) {
             }
         }
 
-//        productsAdapter.clickedProduct { product, position ->
-//
-//            if (product.id == 0) {
-//                requireContext().showToast("Бу маҳсулотга нарх белгиланмаган")
-//            } else {
-//
-//                val builder = AlertDialog.Builder(requireContext())
-//                val binding_dialog_own = OwnProductSellDialogBinding.inflate(layoutInflater)
-//                builder.setView(binding_dialog_own.root)
-//                val create = builder.create()
-//                create.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-//                binding_dialog_own.apply {
-//
-//                    sellCard.setOnClickListener {
-//                        val _price_ = editPrice.text.toString()
-//                        val _quantity_ = editQuantity.text.toString()
-//
-//                        if (_price_.isNotEmpty() && _quantity_.isNotEmpty()) {
-//
-//                            val price_ = _price_.toFloat()
-//                            val quantity_ = _quantity_.toFloat()
-//                            if (quantity_ < product.quantity.toFloat()) {
-//                                productSelledData1.add(
-//                                    SellToClientOwnProduct(
-//                                        clientId.toInt(),
-//                                        price_.toString(),
-//                                        product.product.name,
-//                                        product.id,
-//                                        quantity_.toString(),
-//                                        product.quantity
-//                                    )
-//                                )
-//                                product.quantity = "${product.quantity.toFloat() - quantity_}"
-//                                productsAdapter.notifyItemChanged(position)
-//                                basketNotification.text =
-//                                    (marketSellData.size + productSelledData1.size).toString()
-//                                basketNotification.visibility = View.VISIBLE
-//                                create.dismiss()
-//                            } else {
-//                                requireActivity().showToast("махсулот етарли эмас! Лимитдан ошган")
-//                            }
-//                        } else {
-//                            create.dismiss()
-//                        }
-//                    }
-//
-//                }
-//
-//                create.show()
-//
-//            }
-//        }
+        productsAdapter.clickedProduct { product, position ->
+
+            if (product.id == 0) {
+                requireContext().showToast("Бу маҳсулотга нарх белгиланмаган")
+            } else {
+
+                val builder = AlertDialog.Builder(requireContext())
+                val binding_dialog_own = OwnProductSellDialogBinding.inflate(layoutInflater)
+                builder.setView(binding_dialog_own.root)
+                val create = builder.create()
+                create.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                binding_dialog_own.apply {
+
+                    sellCard.setOnClickListener {
+                        val _price_ = editPrice.text.toString()
+                        val _quantity_ = editQuantity.text.toString()
+
+                        if (_price_.isNotEmpty() && _quantity_.isNotEmpty()) {
+
+                            val price_ = _price_.toFloat()
+                            val quantity_ = _quantity_.toFloat()
+                            Log.e("TAG", "onViewCreated: ${product.quantity.toFloat()}")
+                            if (quantity_ <= product.quantity.toFloat()) {
+                                productSelledData1.add(
+                                    SellToClientOwnProduct(
+                                        clientId.toInt(),
+                                        price_.toString(),
+                                        product.product.name,
+                                        product.id,
+                                        quantity_.toString(),
+                                        product.quantity
+                                    )
+                                )
+                                product.quantity = "${product.quantity.toFloat() - quantity_}"
+                                productsAdapter.notifyItemChanged(position)
+                                basketNotification.text =
+                                    (marketSellData.size + productSelledData1.size).toString()
+                                basketNotification.visibility = View.VISIBLE
+                                create.dismiss()
+                            } else {
+                                requireActivity().showToast("махсулот етарли эмас! Лимитдан ошган")
+                            }
+                        } else {
+                            create.dismiss()
+                        }
+                    }
+
+                }
+
+                create.show()
+
+            }
+        }
 
 
         productsAdapter1.clickedProduct { product ->
@@ -276,31 +279,68 @@ class ClientFragment : Fragment(R.layout.client_page) {
                     }
                     dialog.show()
                 }
+
+                /*if (marketSellOwnOrFromWarehouse == 2) {
+
+                    val dialog =
+                        OwnAmountInputDialog(requireContext(), product.price.toDouble())
+
+                    dialog.setOnAmountInput { amount, takeClient, discount ->
+                        productSelledData.add(product)
+
+                        if (amount < product.quantity.toDouble()) {
+                            ownMarketSellData.add(
+                                OwnMarketSellData(
+                                    amount,
+                                    takeClient,
+                                    clientId.toInt(),
+                                    product.id,
+                                    product.price_id,
+                                    discount,
+                                    product.warehouse,
+                                    "delivered",
+                                    product.category_discount.toDouble() + product.product_discount.toDouble()
+                                )
+                            )
+
+                            basketNotification.text = marketSellData.size.toString()
+                            basketNotification.visibility = View.VISIBLE
+                        } else {
+                            requireContext().showToast("Клиентда махсулот етарли эмас! Лимит: ${product.quantity}")
+                        }
+                    }
+                    dialog.show()
+                }*/
+
             }
         }
 
         //utadigan fragmentni kuriw kere
-//        productsAdapter.productDetailClicked { id ->
-//            val bundle = Bundle()
-//            bundle.putSerializable(
-//                "class",
-//                InfoClass(
-//                    id.product.name,
-//                    id.quantity,
-//                    "o`zidagi mahsulot",
-//                    id.product.product_type,
-//                    id.product.info.toString()
-//                )
-//            )
-//            bundle.putInt("int", 1)
-//            findNavController().navigate(R.id.productInfoFragment, bundle)
-//        }
+        productsAdapter.productDetailClicked { id ->
+            val bundle = Bundle()
+            bundle.putSerializable(
+                "class",
+                InfoClass(
+                    id.product.name,
+                    id.quantity,
+                    "o`zidagi mahsulot",
+                    id.product.product_type,
+                    id.product.info.toString()
+                )
+            )
+            bundle.putInt("int", 1)
+            findNavController().navigate(R.id.productInfoFragment, bundle)
+        }
 
         productsAdapter1.productDetailClicked { id ->
             val bundle = Bundle()
             bundle.putSerializable(
                 "class",
-                InfoClass(id.name, id.quantity, id.warehouse_name, id.product_type, price = id.price)
+                InfoClass(id.name,
+                    id.quantity,
+                    id.warehouse_name,
+                    id.product_type,
+                    price = id.price)
             )
             bundle.putInt("int", 2)
             findNavController().navigate(R.id.productInfoFragment, bundle)
@@ -342,9 +382,15 @@ class ClientFragment : Fragment(R.layout.client_page) {
             val text = searchInput.text.toString()
 
             if (text.isDigitsOnly()) {
-                pageViewModel.getProducts(chosenCategory, SharedPref.user ?: clientId, searchInput.text.toString(), "")
+                pageViewModel.getProducts(chosenCategory,
+                    SharedPref.user ?: clientId,
+                    searchInput.text.toString(),
+                    "")
             } else {
-                pageViewModel.getProducts(chosenCategory, SharedPref.user ?: clientId, "", searchInput.text.toString())
+                pageViewModel.getProducts(chosenCategory,
+                    SharedPref.user ?: clientId,
+                    "",
+                    searchInput.text.toString())
             }
 
         }
@@ -693,10 +739,10 @@ class ClientFragment : Fragment(R.layout.client_page) {
     }
 
     private fun initRecOwnProduct() {
-//        productsAdapter.submitList(ownProductData)
-//        productsAdapter.query = querySt
+        productsAdapter.submitList(ownProductData)
+        productsAdapter.query = querySt
         recycler.layoutManager = LinearLayoutManager(requireContext())
-//        recycler.adapter = productsAdapter
+        recycler.adapter = productsAdapter
     }
 
 

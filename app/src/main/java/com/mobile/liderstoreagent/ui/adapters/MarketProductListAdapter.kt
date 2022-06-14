@@ -45,9 +45,7 @@ class MarketProductListAdapter :
             else productName.text = dw
 
             productPrice.text = d.product.incoming_price
-
             warehouseName.text = d.product.category.name
-
             productQuantity.text = d.quantity.toString() + " " + d.product.unit
 
             val day = d.product.updated_date.substring(0, 10)

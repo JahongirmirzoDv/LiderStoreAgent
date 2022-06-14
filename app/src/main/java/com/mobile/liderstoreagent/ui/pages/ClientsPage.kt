@@ -26,11 +26,6 @@ import com.mobile.liderstoreagent.ui.viewmodels.AddClientViewModel
 import com.mobile.liderstoreagent.ui.viewmodels.ClientPageViewModel
 import com.mobile.liderstoreagent.utils.log
 import com.mobile.liderstoreagent.utils.showToast
-import com.mazenrashed.printooth.Printooth
-import com.mazenrashed.printooth.data.printable.Printable
-import com.mazenrashed.printooth.data.printable.TextPrintable
-import com.mazenrashed.printooth.data.printer.DefaultPrinter
-import com.mazenrashed.printooth.ui.ScanningActivity
 import kotlinx.android.synthetic.main.clients_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -244,12 +239,12 @@ class ClientsPage : Fragment(R.layout.clients_fragment) {
 
                         log(printerText, "PRINTER")
 
-                        startActivityForResult(
-                            Intent(
-                                requireContext(),
-                                ScanningActivity::class.java
-                            ), ScanningActivity.SCANNING_FOR_PRINTER
-                        )
+//                        startActivityForResult(
+//                            Intent(
+//                                requireContext(),
+//                                ScanningActivity::class.java
+//                            ), ScanningActivity.SCANNING_FOR_PRINTER
+
                     } else {
                         requireContext().showToast("Маълумот топилмади!")
                     }
@@ -259,24 +254,24 @@ class ClientsPage : Fragment(R.layout.clients_fragment) {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == ScanningActivity.SCANNING_FOR_PRINTER && resultCode == Activity.RESULT_OK) {
-            var printables = ArrayList<Printable>()
-            var printable = TextPrintable.Builder()
-                .setText(printerText) //The text you want to print
-                .setAlignment(DefaultPrinter.ALIGNMENT_CENTER)
-                .setEmphasizedMode(DefaultPrinter.EMPHASIZED_MODE_BOLD) //Bold or normal
-                .setFontSize(DefaultPrinter.FONT_SIZE_NORMAL)
-                // .setUnderlined(DefaultPrinter.UNDERLINED_MODE_ON) // Underline on/off
-                .setCharacterCode(DefaultPrinter.CHARCODE_ARABIC_CP720) // Character code to support languages
-                .setLineSpacing(DefaultPrinter.LINE_SPACING_60)
-                .setNewLinesAfter(1) // To provide n lines after sentence
-                .build()
-            printables.add(printable)
-            Printooth.printer().print(printables)
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == ScanningActivity.SCANNING_FOR_PRINTER && resultCode == Activity.RESULT_OK) {
+//            var printables = ArrayList<Printable>()
+//            var printable = TextPrintable.Builder()
+//                .setText(printerText) //The text you want to print
+//                .setAlignment(DefaultPrinter.ALIGNMENT_CENTER)
+//                .setEmphasizedMode(DefaultPrinter.EMPHASIZED_MODE_BOLD) //Bold or normal
+//                .setFontSize(DefaultPrinter.FONT_SIZE_NORMAL)
+//                // .setUnderlined(DefaultPrinter.UNDERLINED_MODE_ON) // Underline on/off
+//                .setCharacterCode(DefaultPrinter.CHARCODE_ARABIC_CP720) // Character code to support languages
+//                .setLineSpacing(DefaultPrinter.LINE_SPACING_60)
+//                .setNewLinesAfter(1) // To provide n lines after sentence
+//                .build()
+//            printables.add(printable)
+//            Printooth.printer().print(printables)
+//        }
+//    }
 
 
     private fun initClientsChooseDialog() {

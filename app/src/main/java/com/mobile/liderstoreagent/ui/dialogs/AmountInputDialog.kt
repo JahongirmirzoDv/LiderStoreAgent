@@ -29,6 +29,7 @@ class AmountInputDialog(context: Context, price: Double) :
 
                         priceText.text =
                             "Нархи: ${sellPrice.toDouble()}x${amount.toDouble()} = $price"
+                        total_price = price
 
                         if (discount.isNotEmpty()) {
                             priceDiscount.visibility = View.VISIBLE
@@ -38,7 +39,6 @@ class AmountInputDialog(context: Context, price: Double) :
 
                             priceTotal.text =
                                 "Жами: ${price - price * discount.toDouble() / 100.0}"
-                            total_price = price - price * discount.toDouble() / 100.0
                         } else {
                             priceDiscount.visibility = View.GONE
                             priceTotal.visibility = View.GONE
@@ -65,6 +65,7 @@ class AmountInputDialog(context: Context, price: Double) :
 
                         priceText.text =
                             "Нархи: ${sellPrice.toDouble()}x${amount.toDouble()} = $price"
+                        total_price = price
 
                         if (discount.isNotEmpty()) {
                             priceDiscount.visibility = View.VISIBLE
@@ -74,7 +75,6 @@ class AmountInputDialog(context: Context, price: Double) :
 
                             priceTotal.text =
                                 "Жами: ${price - price * discount.toDouble() / 100.0}"
-                            total_price = price - price * discount.toDouble() / 100.0
                         } else {
                             priceDiscount.visibility = View.GONE
                             priceTotal.visibility = View.GONE
@@ -101,6 +101,7 @@ class AmountInputDialog(context: Context, price: Double) :
 
                         priceText.text =
                             "Нархи: ${sellPrice.toDouble()}x${amount.toDouble()} = $price"
+                        total_price = price
 
                         if (discount.isNotEmpty()) {
                             priceDiscount.visibility = View.VISIBLE
@@ -110,7 +111,7 @@ class AmountInputDialog(context: Context, price: Double) :
 
                             priceTotal.text =
                                 "Жами: ${price - price * discount.toDouble() / 100.0}"
-                            total_price = price - price * discount.toDouble() / 100.0
+
                         } else {
                             priceDiscount.visibility = View.GONE
                             priceTotal.visibility = View.GONE
@@ -128,7 +129,6 @@ class AmountInputDialog(context: Context, price: Double) :
                 val amount = amountInput.text.toString()
                 val sellPrice = sellInput.text.toString()
                 val discount = discountInput.text.toString()
-
                if (total_price > price){
                    if (amount.isNotEmpty() && sellPrice.isNotEmpty()
                    ) {

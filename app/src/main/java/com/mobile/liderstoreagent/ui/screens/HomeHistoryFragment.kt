@@ -35,7 +35,7 @@ class HomeHistoryFragment : Fragment(R.layout.fragment_home_history) {
             TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
                 when(position) {
                     0->{
-                        tab.text = "Profit "
+                        tab.text = "Profit"
                     }
                     1 -> {
                         tab.text = "Olinganlar "
