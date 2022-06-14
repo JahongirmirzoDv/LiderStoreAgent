@@ -44,10 +44,10 @@ class HomeReturnProductFragment : Fragment(R.layout.fragment_home_return_product
             TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
                 when(position) {
                     0 -> {
-                        tab.text = "Return${position+1}"
+                        tab.text = "Qaytarish${position+1}"
                     }
                     1 -> {
-                        tab.text = "Return${position+1}"
+                        tab.text = "Qaytarish${position+1}"
                     }
                 }
 

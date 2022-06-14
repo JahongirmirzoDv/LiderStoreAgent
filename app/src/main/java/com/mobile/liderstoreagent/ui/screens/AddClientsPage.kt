@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.mobile.liderstoreagent.R
 import com.mobile.liderstoreagent.data.models.clientmodel.AddClientData
 import com.mobile.liderstoreagent.data.models.clientmodel.MyTerritory
@@ -19,8 +20,8 @@ import com.mobile.liderstoreagent.data.models.clientmodel.clientproducts.AddClie
 import com.mobile.liderstoreagent.data.models.clientmodel.clientproducts.CarOption
 import com.mobile.liderstoreagent.data.models.clientmodel.clientproducts.MarketCode
 import com.mobile.liderstoreagent.data.models.clientmodel.clientproducts.MarketTypeOption
-import com.mobile.liderstoreagent.data.models.clientmodel.pricetype.PriceType
 import com.mobile.liderstoreagent.data.models.clientmodel.pricetype.PriceResult
+import com.mobile.liderstoreagent.data.models.clientmodel.pricetype.PriceType
 import com.mobile.liderstoreagent.data.source.local.MyDatabase
 import com.mobile.liderstoreagent.data.source.local.TokenSaver
 import com.mobile.liderstoreagent.data.source.local.clients.ClientEntity
@@ -32,7 +33,6 @@ import com.mobile.liderstoreagent.ui.dialogs.SelectorDialog
 import com.mobile.liderstoreagent.ui.viewmodels.AddClientViewModel
 import com.mobile.liderstoreagent.utils.DatePickerHelper
 import com.mobile.liderstoreagent.utils.showToast
-import com.github.dhaval2404.imagepicker.ImagePicker
 import kotlinx.android.synthetic.main.add_client_page.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -40,7 +40,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class AddClientsPage : Fragment(R.layout.add_client_page) {
@@ -72,16 +71,39 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
     lateinit var myPriceType: PriceType
     private val viewModel: AddClientViewModel by viewModels()
 
+    var page = 0
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments.let {
+            if (it != null) {
+                page = it.getInt("page")
+            }
+        }
+    }
+
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.priceTypeUseCaseSuccess.observe(viewLifecycleOwner, priceTypeUseCaseSuccessObserver)
+        viewModel.priceTypeUseCaseSuccess.observe(viewLifecycleOwner,
+            priceTypeUseCaseSuccessObserver)
         viewModel.getTerritories()
+        if (page == 1) {
+            ln1.visibility = View.GONE
+            ln2.visibility = View.GONE
+            ln5.visibility = View.GONE
+            ln6.visibility = View.GONE
+            aa1.visibility = View.GONE
+            pickClientLocation.visibility = View.GONE
 
+            address1.hint = "Ism"
+            mashrut.hint = "Familiya"
+            ln3.hint = "Telefon raqam"
+            ln4.hint = "Izoh"
+        }
 
-            phoneNumber1.setText("+998")
-            phoneNumber2.setText("+998")
+        phoneNumber1.setText("+998")
+        phoneNumber2.setText("+998")
 
 
 
@@ -102,8 +124,8 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
         val db = MyDatabase.getDatabase(requireContext())
         GlobalScope.launch {
             val count = db.clientDao().getAll().size
-            withContext(Dispatchers.Main){
-                if(count>0){
+            withContext(Dispatchers.Main) {
+                if (count > 0) {
                     basketNotificationClients.text = count.toString()
                     basketNotificationClients.visibility = View.VISIBLE
                 }
@@ -157,9 +179,9 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
 
                 workerTerritories.clear()
 
-                territories.map { t->
-                    if(t.carId == id) {
-                        workerTerritories.add(MyTerritory(t.territoryId,t.territoryName))
+                territories.map { t ->
+                    if (t.carId == id) {
+                        workerTerritories.add(MyTerritory(t.territoryId, t.territoryName))
                     }
                 }
             }
@@ -306,32 +328,32 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
             } else {
                 isValid = true
 
-                addClientData = AddClientData(
-                    clientId,
-                    inputMarketName,
-                    address,
-                    repsonsiblePerson,
-                    phoneNumber1.text.toString(),
-                    phoneNumber2.text.toString(),
-                    latitude,
-                    longitude,
-                    imageAddress!!,
-                    TokenSaver.getAgentId(),
-                    INN,
-                    direktorName,
-                    birthDateDirector,
-                    car,
-                    market,
-                    mashrutKa.text.toString(),
-                    territory,
-                    price
-                )
-               viewModel.addClient(addClientData)
+                if (page == 1) {
+                    addClientData = AddClientData(
+                        clientId,
+                        "market",
+                        address,
+                        "person",
+                        phoneNumber1.text.toString(),
+                        "9980000000",
+                        41.0,
+                        73.0,
+                        imageAddress!!,
+                        TokenSaver.getAgentId(),
+                        "123546589",
+                        "${clientAddress.text} ${mashrutKa.text}",
+                        birthDateDirector,
+                        777,
+                        1,
+                        "target",
+                        1,
+                        1
+                    )
+                    viewModel.addClient(addClientData)
                 }
             }
         }
-
-
+    }
 
 
     private val progressObserver = Observer<Boolean> {
@@ -342,10 +364,10 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
         }
     }
     private val errorAddClientObserver = Observer<String> {
-       requireContext().showToast(it)
+        requireContext().showToast(it)
     }
     private val errorTimeOutAddClientObserver = Observer<Unit> {
-       if(isValid) addClientOfflineMode()
+        if (isValid) addClientOfflineMode()
         clientAddProgressBar.visibility = View.GONE
     }
     private val connectionErrorObserver = Observer<Unit> {
@@ -353,10 +375,10 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
         requireActivity().showToast("Интернет юқ!")
     }
     private val connectionErrorAddObserver = Observer<Unit> {
-        if(isValid) addClientOfflineMode()
+        if (isValid) addClientOfflineMode()
     }
 
-    private fun setTimeOutAndConnectionError(){
+    private fun setTimeOutAndConnectionError() {
 
         val db = MyDatabase.getDatabase(requireContext())
         GlobalScope.launch {
@@ -383,15 +405,15 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
                 }
 
 
-                myPriceType = PriceType(0,0,0,priceType)
+                myPriceType = PriceType(0, 0, 0, priceType)
                 mySelectors = AddClientSelectors(carsSel, marketSel)
-
 
 
             }
         }
 
     }
+
     private fun showDatePickerDialog() {
 
         val cal = Calendar.getInstance()
@@ -410,7 +432,8 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
             }
         })
     }
-    fun addClientOfflineMode(){
+
+    fun addClientOfflineMode() {
         AlertDialog.Builder(requireContext())
             .setTitle("Интернет юқ!!")
             .setMessage("Интернет ишламаяпти, қурилма ҳотирасига сақалашни ҳоҳлайсизми!")
@@ -444,8 +467,8 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
                     }
 
                     val count = db.clientDao().getAll().size
-                    withContext(Dispatchers.Main){
-                        if(count>0){
+                    withContext(Dispatchers.Main) {
+                        if (count > 0) {
                             basketNotificationClients.text = count.toString()
                             basketNotificationClients.visibility = View.VISIBLE
                         }
@@ -509,7 +532,7 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
         GlobalScope.launch {
             db.priceTypeDao().deleteAllPriceTypes()
 
-           db.priceTypeDao().insertPriceTypes(priceList)
+            db.priceTypeDao().insertPriceTypes(priceList)
         }
 
     }
@@ -517,7 +540,8 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
     private val successTerritoryObserver = Observer<List<Territory>> { territoryList ->
         val territorySel = ArrayList<TerritoryEntity>()
         territoryList.map { t ->
-            territorySel.add(TerritoryEntity(0,t.id,t.name,t.car.id)) }
+            territorySel.add(TerritoryEntity(0, t.id, t.name, t.car.id))
+        }
 
         territories = territorySel
 
@@ -538,10 +562,10 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
 
     @SuppressLint("FragmentLiveDataObserve")
     private fun setUpReport() {
-        Log.d("logos","setUpReport")
+        Log.d("logos", "setUpReport")
         viewModel.progressLiveData.observe(this, progressObserver)
         viewModel.errorAddClientLiveData.observe(this, errorAddClientObserver)
-        viewModel.errorTimeOutLiveDataAddClient.observe(this,errorTimeOutAddClientObserver)
+        viewModel.errorTimeOutLiveDataAddClient.observe(this, errorTimeOutAddClientObserver)
         viewModel.connectionErrorLiveData.observe(this, connectionErrorAddObserver)
         viewModel.successLiveData.observe(this, successObserver)
         viewModel.locationLiveData.observe(viewLifecycleOwner, locationObserver)
@@ -549,17 +573,17 @@ class AddClientsPage : Fragment(R.layout.add_client_page) {
 
     @SuppressLint("FragmentLiveDataObserve")
     private fun setUpSelectors() {
-        Log.d("logos","setUpSelectors")
+        Log.d("logos", "setUpSelectors")
         viewModel.progressSelectorsLiveData.observe(this, progressObserver)
         viewModel.connectionErrorSelectorsLiveData.observe(this, connectionErrorObserver)
         viewModel.successSelectorsLiveData.observe(this, successSelectorsObserver)
-        viewModel.errorTimeOutLiveDataSelectors.observe(this,errorSelectorsObserver)
-        viewModel.errorSelectorsLiveData.observe(this,errorSelectorsObserver)
+        viewModel.errorTimeOutLiveDataSelectors.observe(this, errorSelectorsObserver)
+        viewModel.errorSelectorsLiveData.observe(this, errorSelectorsObserver)
     }
 
     @SuppressLint("FragmentLiveDataObserve")
     private fun setUpTerritories() {
-        Log.d("logos","setUpTerritories")
+        Log.d("logos", "setUpTerritories")
         viewModel.progressTerritoryLiveData.observe(this, progressObserver)
         viewModel.connectionErrorTerritoryLiveData.observe(this, connectionErrorObserver)
         viewModel.successTerritoryLiveData.observe(this, successTerritoryObserver)

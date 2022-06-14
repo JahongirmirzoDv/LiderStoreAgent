@@ -143,7 +143,6 @@ class AmountInputDialog(context: Context, price: Double) :
                    }
                }else Toast.makeText(context, "umumiy summa narxdan kichik", Toast.LENGTH_SHORT)
                    .show()
-
                 close()
             }
 

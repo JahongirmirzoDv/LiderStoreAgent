@@ -97,6 +97,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/InputLayout"
+                android:id="@+id/ln2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black">
@@ -117,7 +118,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
-
+                android:id="@+id/ln1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -188,6 +189,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/InputLayout"
+                android:id="@+id/address1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
@@ -210,6 +212,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/InputLayout"
+                android:id="@+id/mashrut"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black">
@@ -288,6 +291,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/InputLayout"
+                android:id="@+id/ln3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black">
@@ -309,6 +313,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/InputLayout"
+                android:id="@+id/ln4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black">
@@ -330,6 +335,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/InputLayout"
+                android:id="@+id/ln5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black">
@@ -352,6 +358,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/InputLayout"
+                android:id="@+id/ln6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/black">
@@ -382,10 +389,10 @@
                 android:textColor="@color/white" />
 
             <LinearLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:id="@+id/aa1"
                 android:orientation="horizontal"
                 android:padding="8dp"
                 android:weightSum="2">

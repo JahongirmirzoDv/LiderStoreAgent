@@ -110,7 +110,7 @@
         android:layout_width="100dp"
         android:layout_height="30dp">
         <TextView
-            android:text="return"
+            android:text="@string/qaytarish"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/black"

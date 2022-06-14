@@ -42,7 +42,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="60"
-                    android:text="Navruz aksiyasi"
                     android:textColor="@color/primary"
                     android:textSize="20sp" />
 
@@ -52,7 +51,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="40"
-                    android:text="-15%"
                     android:textColor="#B71C1C"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -72,7 +70,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="60"
-                    android:text="@string/muddati"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -81,7 +78,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="40"
-                    android:text="21.04.2022"
                     android:textColor="#B71C1C"
                     android:textSize="16sp" />
 

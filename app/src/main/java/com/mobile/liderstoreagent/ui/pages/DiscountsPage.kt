@@ -16,6 +16,7 @@ import com.mobile.liderstoreagent.ui.dialogs.DiscountChooseDialog
 import com.mobile.liderstoreagent.ui.viewmodels.DiscountsPageViewModel
 import com.mobile.liderstoreagent.utils.showToast
 import kotlinx.android.synthetic.main.discounts_fragment.*
+import kotlinx.android.synthetic.main.item_discount.*
 
 @Suppress("DEPRECATION")
 class DiscountsPage : Fragment(R.layout.discounts_fragment) {
@@ -37,13 +38,13 @@ class DiscountsPage : Fragment(R.layout.discounts_fragment) {
 
 
 
-        searchByDiscount.setOnClickListener {
-            if (discounts.isEmpty()) {
-                requireActivity().showToast("Ҳали дата келмади!")
-            } else {
-                initDiscountsChooseDialog()
-            }
-        }
+//        searchByDiscount.setOnClickListener {
+//            if (discounts.isEmpty()) {
+//                requireActivity().showToast("Ҳали дата келмади!")
+//            } else {
+//                initDiscountsChooseDialog()
+//            }
+//        }
 
 
         refreshDiscounts.setOnRefreshListener {
@@ -88,14 +89,14 @@ class DiscountsPage : Fragment(R.layout.discounts_fragment) {
     private val successDiscountsObserver = Observer<List<Discounts>> { discountsList ->
         discounts = discountsList
 
-        if (!discounts.isEmpty()) {
-            chosenDiscount = discounts[0].id
-            discountViewModel.getDiscountedProducts(discounts[0].id)
-            discountName.text = discounts[0].name
-            discount.text = discounts[0].discount.toString() + " %"
-            if (discounts[0].deadline.equals(null)) deadline.text = "Номаълум" else deadline.text =
-                discounts[0].deadline.toString().substring(0,10)
-        }
+//        if (!discounts.isEmpty()) {
+//            chosenDiscount = discounts[0].id
+//            discountViewModel.getDiscountedProducts(discounts[0].id)
+//            discountName.text = discounts[0].name
+//            discount.text = discounts[0].discount.toString() + " %"
+//            if (discounts[0].deadline.equals(null)) deadline.text = "Номаълум" else deadline.text =
+//                discounts[0].deadline.toString().substring(0,10)
+//        }
     }
 
 

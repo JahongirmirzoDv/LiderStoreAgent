@@ -4,13 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/drawable/widget_bg.xml" value="0.115" />
+        <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/add_client_page.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/amount_input.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/button.xml" value="0.5" />
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/client_page.xml" value="0.1" />
+        <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/discounts_fragment.xml" value="0.1" />
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/home_fragment.xml" value="0.21481481481481482" />
+        <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/item_discount.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/login_fragment.xml" value="0.2" />
+        <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/market_item_products.xml" value="0.1" />
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/own_product_sell_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/payment_fragment.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/product_info_fragment.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/screen_history.xml" value="0.22" />
         <entry key="..\:/Users/jahon/Ishchi stol/LiderStoreAgent/app/src/main/res/layout/screen_own_products.xml" value="0.22447916666666667" />

@@ -59,9 +59,13 @@ class PaymentFragment : Fragment(R.layout.payment_fragment) {
             when (chackedID) {
                 R.id.dollar_radio_btn -> {
                     paymentType = "dollar"
+                    valuta_usd_edit.visibility = View.GONE
+                    valuta_usd.visibility = View.GONE
                 }
                 R.id.sum_radio_btn -> {
                     paymentType = "sum"
+                    valuta_usd_edit.visibility = View.VISIBLE
+                    valuta_usd.visibility = View.VISIBLE
                 }
             }
         }

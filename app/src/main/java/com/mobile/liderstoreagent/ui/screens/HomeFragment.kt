@@ -39,7 +39,14 @@ class HomeFragment : Fragment(R.layout.main_nav) {
 
 
         addClient.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_addClientsPage)
+            val bundle = Bundle()
+            bundle.putInt("page",0)
+            findNavController().navigate(R.id.action_mainFragment_to_addClientsPage,bundle)
+        }
+        addClient2.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("page",1)
+            findNavController().navigate(R.id.action_mainFragment_to_addClientsPage,bundle)
         }
 
         pager.adapter = adapter

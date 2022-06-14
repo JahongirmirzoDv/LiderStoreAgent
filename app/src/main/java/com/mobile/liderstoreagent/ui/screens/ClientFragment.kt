@@ -42,7 +42,6 @@ import com.mobile.liderstoreagent.utils.showToast
 import kotlinx.android.synthetic.main.client_page.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import com.mobile.liderstoreagent.ui.adapters.ToSellClientAdapter as ToSellClientAdapter1
 
 class ClientFragment : Fragment(R.layout.client_page) {
@@ -198,13 +197,11 @@ class ClientFragment : Fragment(R.layout.client_page) {
                 val create = builder.create()
                 create.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                 binding_dialog_own.apply {
-
                     sellCard.setOnClickListener {
                         val _price_ = editPrice.text.toString()
                         val _quantity_ = editQuantity.text.toString()
 
                         if (_price_.isNotEmpty() && _quantity_.isNotEmpty()) {
-
                             val price_ = _price_.toFloat()
                             val quantity_ = _quantity_.toFloat()
                             Log.e("TAG", "onViewCreated: ${product.quantity.toFloat()}")
@@ -232,11 +229,8 @@ class ClientFragment : Fragment(R.layout.client_page) {
                             create.dismiss()
                         }
                     }
-
                 }
-
                 create.show()
-
             }
         }
 
@@ -252,8 +246,7 @@ class ClientFragment : Fragment(R.layout.client_page) {
                         AmountInputDialog(requireContext(), product.price.toDouble())
                     dialog.setOnAmountInput { amount, sellPrice, discount ->
                         productSelledData.add(product)
-
-                        if (amount < product.quantity.toDouble()) {
+                        if (amount <= product.quantity.toDouble()) {
                             var dis = 0.0
                             if (discount != null) dis = discount
                             marketSellData.add(
@@ -269,7 +262,6 @@ class ClientFragment : Fragment(R.layout.client_page) {
                                     product.category_discount.toDouble() + product.product_discount.toDouble()
                                 )
                             )
-
                             basketNotification.text =
                                 (marketSellData.size + productSelledData1.size).toString()
                             basketNotification.visibility = View.VISIBLE
@@ -311,7 +303,6 @@ class ClientFragment : Fragment(R.layout.client_page) {
                     }
                     dialog.show()
                 }*/
-
             }
         }
 
@@ -824,5 +815,4 @@ class ClientFragment : Fragment(R.layout.client_page) {
             }
         }
     }
-
 }
